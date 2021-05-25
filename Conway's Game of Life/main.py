@@ -1,3 +1,13 @@
+"""
+Creator: Andrew Berntson
+Date: May 24 2021
+
+Problem Set Description:
+Create conway's game of life.
+- a living cell dies if it has less than 2 living neighbors
+- a living cell dies if it has more than 3 living neighbors
+- a new cell is created if it has exactly 3 living neighbors
+"""
 import pygame
 
 from world import World
@@ -13,15 +23,20 @@ class Display:
         return
 
     def clear(self):
+        """Fill the screen with black to erase previous drawings."""
         self.win.fill((0, 0, 0))
         return
 
     def blit(self, surf, pos):
+        """Blit a surface onto the display surface at a given position."""
         self.win.blit(surf, pos)
         return
 
     @staticmethod
     def update_screen():
+        """Update the display surface to show anything that has been
+        drawn/blit onto it.
+        """
         pygame.display.update()
         return
 
