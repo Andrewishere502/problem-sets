@@ -23,22 +23,21 @@ class World(pygame.surface.Surface):
         return
 
     def update(self):
+        """Iterate through cells, drawing each on the World surface and
+        checking if the cell should die (if it's alive) or if a new
+        cell should be created here.
+        """
         x = 0
         y = 0
         new_cells = self.cells.copy()
         for i in range(len(self.cells)):
             if self.cells[i] == 1:
                 color = (120, 40, 180)
-            else:
-                color = (0, 0, 0)
-            # draw cells as rectangles
-            pygame.draw.rect(self, color,
-                             (x, y, self.side_length, self.side_length)
-                             )
-            # draw cells as circles
-            # pygame.draw.circle(self, color,
-            #                    (x + self.side_length // 2, y + self.side_length // 2),
-            #                    self.side_length // 2)
+                pygame.draw.rect(self, color,
+                                (x, y, self.side_length, self.side_length)
+                                )
+            # Dead cells will not be drawn, and will appear
+            # as the background color.
 
             new_state = self.get_new_state(i)
             new_cells[i] = new_state
@@ -121,4 +120,3 @@ class World(pygame.surface.Surface):
                 cell_count += 1
 
         return cell_count
-
