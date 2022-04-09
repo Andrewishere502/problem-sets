@@ -1,0 +1,14 @@
+load 15
+subtract 14
+store 15
+load 12
+add 13
+store 12
+load 15
+branchGtZero 0
+print 12
+end
+set 15 6
+set 14 2
+set 13 1
+set 12 0

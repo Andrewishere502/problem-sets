@@ -1,0 +1,7 @@
+load 15
+add 14
+store 13
+print 13
+end
+set 15 85
+set 14 27
